@@ -32,5 +32,5 @@ for n in name_set:
         cols.append("")
     values.append(cols)
 
-merged_df = pd.DataFrame(values)
-print(merged_df.sort_values(0).to_csv())
+merged_df = pd.DataFrame(values, columns=columns)
+print(merged_df.sort_values("Name").to_csv(index=None))
