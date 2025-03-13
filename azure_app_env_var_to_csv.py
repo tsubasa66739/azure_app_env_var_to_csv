@@ -26,7 +26,10 @@ for n in name_set:
     for d in dfs:
         col = d.query(f'name == "{n}"').value
         cols.append("" if col.empty else col.iloc[-1])
-    cols.append("○" if setting.iloc[-1] else "")
+    if not setting.empty:
+        cols.append("○" if setting.iloc[-1] else "")
+    else:
+        cols.append("")
     values.append(cols)
 
 merged_df = pd.DataFrame(values)

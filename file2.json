@@ -8,5 +8,15 @@
         "name": "<key-2>",
         "value": "<value-2>",
         "slotSetting": false
+    },
+    {
+        "name": "<key-3>",
+        "value": "<value-1>",
+        "slotSetting": false
+    },
+    {
+        "name": "<key-5>",
+        "value": "<value-2>",
+        "slotSetting": false
     }
 ]
