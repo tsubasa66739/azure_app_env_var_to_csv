@@ -20,17 +20,26 @@ columns.append("SlotSetting")
 
 values = []
 for n in name_set:
-    setting = dfs[0].query(f'name == "{n}"').slotSetting
     cols = []
     cols.append(n)
+
+    # Append values
     for d in dfs:
         col = d.query(f'name == "{n}"').value
         cols.append("" if col.empty else col.iloc[-1])
-    if not setting.empty:
-        cols.append("○" if setting.iloc[-1] else "")
-    else:
-        cols.append("")
+
+    # Append slotSettings
+    settings = []
+    for df in dfs:
+        setting = df.query(f'name == "{n}"').slotSetting
+        settings.append(False if setting.empty else setting.iloc[-1])
+    cols.append("○" if True in settings else "")
+
     values.append(cols)
 
 merged_df = pd.DataFrame(values, columns=columns)
+
 print(merged_df.sort_values("Name").to_csv(index=None))
+
+# Comment out if you want to output to excel file.
+# merged_df.sort_values("Name").to_excel("output.xlsx", index=None)

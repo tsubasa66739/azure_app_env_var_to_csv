@@ -11,12 +11,12 @@
     },
     {
         "name": "<key-3>",
-        "value": "<value-1>",
+        "value": "<value-3>",
         "slotSetting": false
     },
     {
         "name": "<key-5>",
-        "value": "<value-2>",
-        "slotSetting": false
+        "value": "<value-5>",
+        "slotSetting": true
     }
 ]

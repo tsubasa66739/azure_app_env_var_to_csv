@@ -12,6 +12,6 @@
     {
         "name": "<key-3>",
         "value": "<value-3>",
-        "slotSetting": false
+        "slotSetting": true
     }
 ]
