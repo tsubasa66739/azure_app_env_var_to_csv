@@ -23,18 +23,17 @@ for n in name_set:
     cols = []
     cols.append(n)
 
-    # Append values
+    settings = []
     for d in dfs:
+        # Append to values
         col = d.query(f'name == "{n}"').value
         cols.append("" if col.empty else col.iloc[-1])
 
-    # Append slotSettings
-    settings = []
-    for df in dfs:
-        setting = df.query(f'name == "{n}"').slotSetting
+        # Append to slotSettings
+        setting = d.query(f'name == "{n}"').slotSetting
         settings.append(False if setting.empty else setting.iloc[-1])
-    cols.append("○" if True in settings else "")
 
+    cols.append("○" if True in settings else "")
     values.append(cols)
 
 merged_df = pd.DataFrame(values, columns=columns)
